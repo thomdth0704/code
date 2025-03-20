@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phụ kiện - Tiệm nhà Dứa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Kế thừa styles từ các trang khác */
+        .product-page {
+            padding: 40px 0;
+        }
+
+        .product-filters {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-input {
+            width: 120px;
+            padding: 5px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .sort-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sort-option {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sort-option:hover,
+        .sort-option.active {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 18px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product-price {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-number:hover,
+        .page-number.active {
+            background-color: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        /* Thêm styles đặc biệt cho trang phụ kiện */
+        .category-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: var(--secondary);
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .color-option {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .color-option:hover,
+        .color-option.active {
+            border-color: var(--accent);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tiệm nhà Dứa</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="cart.html" class="shopping-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="makeup.html">Makeup</a></li>
+                    <li><a href="skincare.html">Skincare</a></li>
+                    <li><a href="perfume.html">Perfume</a></li>
+                    <li><a href="accessories.html" class="active">Accessories</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Page -->
+    <main class="product-page">
+        <div class="container">
+            <h2 class="section-title">Phụ kiện</h2>
+            
+            <!-- Filters -->
+            <div class="product-filters">
+                <div class="filter-section">
+                    <h3>Danh mục</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="brush">
+                            Cọ trang điểm
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="sponge">
+                            Bông mút
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="mirror">
+                            Gương
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="category" value="case">
+                            Túi đựng mỹ phẩm
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Thương hiệu</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="real-techniques">
+                            Real Techniques
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="beauty-blender">
+                            Beauty Blender
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="morphe">
+                            Morphe
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="zoeva">
+                            Zoeva
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Giá</h3>
+                    <div class="price-range">
+                        <input type="number" class="price-input" placeholder="Từ">
+                        <span>-</span>
+                        <input type="number" class="price-input" placeholder="Đến">
+                        <button class="btn">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sort Options -->
+            <div class="sort-section">
+                <div class="results-count">
+                    Hiển thị 1-12 trong số 36 sản phẩm
+                </div>
+                <div class="sort-options">
+                    <span class="sort-option active">Phổ biến</span>
+                    <span class="sort-option">Mới nhất</span>
+                    <span class="sort-option">Giá thấp - cao</span>
+                    <span class="sort-option">Giá cao - thấp</span>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="accessories-products">
+                <!-- Products will be dynamically added here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="page-number active">1</span>
+                <span class="page-number">2</span>
+                <span class="page-number">3</span>
+                <span class="page-number">4</span>
+                <span class="page-number">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tiệm nhà Dứa</h3>
+                    <p>Chuyên cung cấp các sản phẩm mỹ phẩm, skincare chính hãng với giá tốt nhất thị trường.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-phone"></i> 0123 456 789<br>
+                        <i class="fas fa-envelope"></i> contact@tiemnhadua.com<br>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường Tây Sơn, Đống Đa, Hà Nội
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Đăng ký nhận tin</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tiệm nhà Dứa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Sample accessories products data
+        const accessoriesProducts = [
+            {
+                id: 1,
+                name: "Bộ Cọ Real Techniques Everyday Essentials",
+                brand: "Real Techniques",
+                category: "brush",
+                price: 850000,
+                image: "images/products/rt-brush-set.jpg",
+                description: "Bộ cọ trang điểm cơ bản cho người mới bắt đầu"
+            },
+            {
+                id: 2,
+                name: "Beauty Blender Original",
+                brand: "Beauty Blender",
+                category: "sponge",
+                price: 450000,
+                image: "images/products/beauty-blender.jpg",
+                description: "Mút tán nền cao cấp, độ đàn hồi cao"
+            },
+            {
+                id: 3,
+                name: "Gương Trang Điểm LED",
+                brand: "Generic",
+                category: "mirror",
+                price: 550000,
+                image: "images/products/led-mirror.jpg",
+                description: "Gương trang điểm có đèn LED, điều chỉnh độ sáng"
+            },
+            {
+                id: 4,
+                name: "Túi Đựng Mỹ Phẩm Hologram",
+                brand: "Generic",
+                category: "case",
+                price: 280000,
+                image: "images/products/makeup-bag.jpg",
+                description: "Túi đựng mỹ phẩm chất liệu hologram thời trang"
+            }
+            // Add more accessories products here
+        ];
+
+        // Initialize accessories products
+        function initAccessoriesProducts() {
+            const productGrid = document.getElementById('accessories-products');
+            if (productGrid) {
+                productGrid.innerHTML = accessoriesProducts
+                    .map(product => createAccessoryCard(product))
+                    .join('');
+            }
+        }
+
+        // Create accessory card
+        function createAccessoryCard(product) {
+            return `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="product-info">
+                        <span class="category-tag">${product.category}</span>
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">${formatPrice(product.price)}</div>
+                        <button class="btn add-to-cart" data-product-id="${product.id}">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked'))
+                .map(input => input.value);
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked'))
+                .map(input => input.value);
+            const minPrice = document.querySelector('.price-input:first-child').value;
+            const maxPrice = document.querySelector('.price-input:last-child').value;
+
+            let filteredProducts = accessoriesProducts;
+
+            if (selectedCategories.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    selectedCategories.includes(product.category));
+            }
+
+            if (selectedBrands.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    selectedBrands.includes(product.brand.toLowerCase()));
+            }
+
+            if (minPrice) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.price >= parseInt(minPrice));
+            }
+
+            if (maxPrice) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.price <= parseInt(maxPrice));
+            }
+
+            const productGrid = document.getElementById('accessories-products');
+            productGrid.innerHTML = filteredProducts
+                .map(product => createAccessoryCard(product))
+                .join('');
+        }
+
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initAccessoriesProducts();
+            updateCartCount();
+
+            // Filter event listeners
+            document.querySelectorAll('input[type="checkbox"], .price-input')
+                .forEach(input => {
+                    input.addEventListener('change', applyFilters);
+                });
+
+            // Sort options
+            document.querySelectorAll('.sort-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    document.querySelector('.sort-option.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    // Implement sorting logic here
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

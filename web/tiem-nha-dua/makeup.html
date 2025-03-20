@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Up - Tiệm nhà Dứa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Product page specific styles */
+        .product-page {
+            padding: 40px 0;
+        }
+
+        .product-filters {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-input {
+            width: 120px;
+            padding: 5px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .sort-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sort-option {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .sort-option:hover,
+        .sort-option.active {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 18px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product-price {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-number:hover,
+        .page-number.active {
+            background-color: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tiệm nhà Dứa</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="cart.html" class="shopping-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="makeup.html" class="active">Makeup</a></li>
+                    <li><a href="skincare.html">Skincare</a></li>
+                    <li><a href="perfume.html">Nước hoa</a></li>
+                    <li><a href="accessories.html">Phụ kiện</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Page -->
+    <main class="product-page">
+        <div class="container">
+            <h2 class="section-title">Make Up</h2>
+            
+            <!-- Filters -->
+            <div class="product-filters">
+                <div class="filter-section">
+                    <h3>Thương hiệu</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="mac">
+                            MAC
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="3ce">
+                            3CE
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="maybelline">
+                            Maybelline
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="brand" value="loreal">
+                            L'Oreal
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Loại sản phẩm</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="lipstick">
+                            Son môi
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="mascara">
+                            Mascara
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="foundation">
+                            Kem nền
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="eyeshadow">
+                            Phấn mắt
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Giá</h3>
+                    <div class="price-range">
+                        <input type="number" class="price-input" placeholder="Từ">
+                        <span>-</span>
+                        <input type="number" class="price-input" placeholder="Đến">
+                        <button class="btn">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sort Options -->
+            <div class="sort-section">
+                <div class="results-count">
+                    Hiển thị 1-12 trong số 36 sản phẩm
+                </div>
+                <div class="sort-options">
+                    <span class="sort-option active">Phổ biến</span>
+                    <span class="sort-option">Mới nhất</span>
+                    <span class="sort-option">Giá thấp - cao</span>
+                    <span class="sort-option">Giá cao - thấp</span>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="makeup-products">
+                <!-- Products will be dynamically added here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="page-number active">1</span>
+                <span class="page-number">2</span>
+                <span class="page-number">3</span>
+                <span class="page-number">4</span>
+                <span class="page-number">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tiệm nhà Dứa</h3>
+                    <p>Chuyên cung cấp các sản phẩm mỹ phẩm, skincare chính hãng với giá tốt nhất thị trường.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-phone"></i> 0123 456 789<br>
+                        <i class="fas fa-envelope"></i> contact@tiemnhadua.com<br>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường Tây Sơn, Đống Đa, Hà Nội
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Đăng ký nhận tin</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tiệm nhà Dứa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Sample makeup products data
+        const makeupProducts = [
+            {
+                id: 1,
+                name: "Son MAC Ruby Woo",
+                brand: "MAC",
+                type: "lipstick",
+                price: 550000,
+                image: "images/products/mac-ruby-woo.jpg",
+                description: "Son môi MAC Retro Matte Lipstick Ruby Woo"
+            },
+            {
+                id: 5,
+                name: "Son 3CE Mood Recipe",
+                brand: "3CE",
+                type: "lipstick",
+                price: 350000,
+                image: "images/products/3ce-mood.jpg",
+                description: "Son môi 3CE Mood Recipe Matte Lip Color"
+            },
+            {
+                id: 6,
+                name: "Mascara Maybelline",
+                brand: "Maybelline",
+                type: "mascara",
+                price: 180000,
+                image: "images/products/maybelline-mascara.jpg",
+                description: "Mascara Maybelline Lash Sensational"
+            },
+            {
+                id: 7,
+                name: "Phấn mắt Loreal",
+                brand: "Loreal",
+                type: "eyeshadow",
+                price: 280000,
+                image: "images/products/loreal-palette.jpg",
+                description: "Phấn mắt L'Oreal Color Riche La Palette"
+            }
+            // Add more makeup products here
+        ];
+
+        // Initialize makeup products
+        function initMakeupProducts() {
+            const productGrid = document.getElementById('makeup-products');
+            if (productGrid) {
+                productGrid.innerHTML = makeupProducts
+                    .map(product => createProductCard(product))
+                    .join('');
+            }
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked'))
+                .map(input => input.value);
+            const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked'))
+                .map(input => input.value);
+            const minPrice = document.querySelector('.price-input:first-child').value;
+            const maxPrice = document.querySelector('.price-input:last-child').value;
+
+            let filteredProducts = makeupProducts;
+
+            if (selectedBrands.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    selectedBrands.includes(product.brand.toLowerCase()));
+            }
+
+            if (selectedTypes.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    selectedTypes.includes(product.type));
+            }
+
+            if (minPrice) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.price >= parseInt(minPrice));
+            }
+
+            if (maxPrice) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.price <= parseInt(maxPrice));
+            }
+
+            const productGrid = document.getElementById('makeup-products');
+            productGrid.innerHTML = filteredProducts
+                .map(product => createProductCard(product))
+                .join('');
+        }
+
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initMakeupProducts();
+            updateCartCount();
+
+            // Filter event listeners
+            document.querySelectorAll('input[type="checkbox"], .price-input')
+                .forEach(input => {
+                    input.addEventListener('change', applyFilters);
+                });
+
+            // Sort options
+            document.querySelectorAll('.sort-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    document.querySelector('.sort-option.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    // Implement sorting logic here
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

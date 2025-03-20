@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm nhà Dứa - Mỹ phẩm chính hãng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tiệm nhà Dứa</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="cart.html" class="shopping-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="makeup.html">Makeup</a></li>
+                    <li><a href="skincare.html">Skincare</a></li>
+                    <li><a href="perfume.html">Perfume</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-slider">
+                <div class="slide">
+                    <img src="images/banner1.jpg" alt="Khuyến mãi mùa hè">
+                    <div class="slide-content">
+                        <h2>Khuyến mãi mùa hè</h2>
+                        <p>Giảm giá đến 50% cho các sản phẩm skincare</p>
+                        <a href="#" class="btn">Xem ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Danh mục sản phẩm</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="images/makeup.jpg" alt="Makeup">
+                    <h3>Makeup</h3>
+                    <a href="makeup.html" class="btn">Xem thêm</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/skincare.jpg" alt="Skincare">
+                    <h3>Skincare</h3>
+                    <a href="skincare.html" class="btn">Xem thêm</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/perfume.jpg" alt="Perfume">
+                    <h3>Perfume</h3>
+                    <a href="perfume.html" class="btn">Xem thêm</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/accessories.jpg" alt="Accessories">
+                    <h3>Accessories</h3>
+                    <a href="accessories.html" class="btn">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Sản phẩm nổi bật</h2>
+            <div class="product-grid">
+                <!-- Product cards will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tiệm nhà Dứa</h3>
+                    <p>Chuyên cung cấp các sản phẩm mỹ phẩm, skincare chính hãng với giá tốt nhất thị trường.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-phone"></i> 0123 456 789<br>
+                        <i class="fas fa-envelope"></i> contact@tiemnhadua.com<br>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường Tây Sơn, Đống Đa, Hà Nội
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61563886907581" target="_blank" title="Tiệm nhà Dứa trên Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Đăng ký nhận tin</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tiệm nhà Dứa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Chat Box -->
+    <div class="chat-box">
+        <div class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <h3>Tiệm nhà Dứa</h3>
+                <span class="close-chat" onclick="toggleChat()">×</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message admin">
+                    <div class="message-content">
+                        Xin chào! Tiệm nhà Dứa có thể giúp gì cho bạn? 🌸
+                    </div>
+                    <div class="message-time">14:00</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatContainer = document.getElementById('chatContainer');
+            chatContainer.classList.toggle('active');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                const chatMessages = document.getElementById('chatMessages');
+                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                // Add user message
+                chatMessages.innerHTML += `
+                    <div class="message user">
+                        <div class="message-content">${message}</div>
+                        <div class="message-time">${time}</div>
+                    </div>
+                `;
+
+                // Add automated response after a short delay
+                setTimeout(() => {
+                    chatMessages.innerHTML += `
+                        <div class="message admin">
+                            <div class="message-content">
+                                Cảm ơn bạn đã liên hệ. Nhân viên của chúng tôi sẽ phản hồi sớm nhất! 🌸
+                            </div>
+                            <div class="message-time">${time}</div>
+                        </div>
+                    `;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+
+                input.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html> 

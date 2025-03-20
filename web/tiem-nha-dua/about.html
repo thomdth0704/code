@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về chúng tôi - Tiệm nhà Dứa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .about-page {
+            padding: 60px 0;
+        }
+
+        .about-section {
+            margin-bottom: 60px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-header h1 {
+            font-size: 36px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .about-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.15);
+            aspect-ratio: 4/3;
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 105, 180, 0.2), rgba(255, 192, 203, 0.1));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 20px;
+        }
+
+        .story-content h2 {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-family: var(--font-heading);
+            position: relative;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .story-content p {
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-family: var(--font-body);
+        }
+
+        .values-section {
+            background-color: var(--secondary);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .team-section {
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--secondary);
+        }
+
+        .team-member h3 {
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 992px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .story-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .story-content h2 {
+                font-size: 28px;
+            }
+            
+            .story-content p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tiệm nhà Dứa</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="cart.html" class="shopping-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="makeup.html">Makeup</a></li>
+                    <li><a href="skincare.html">Skincare</a></li>
+                    <li><a href="perfume.html">Perfume</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Page -->
+    <main class="about-page">
+        <div class="container">
+            <!-- About Header -->
+            <div class="about-header">
+                <h1>Về Tiệm nhà Dứa</h1>
+                <p>Chúng tôi là điểm đến tin cậy cho những người yêu thích làm đẹp, 
+                   mang đến những sản phẩm chất lượng và dịch vụ tận tâm.</p>
+            </div>
+
+            <!-- Story Section -->
+            <section class="about-section story-section">
+                <div class="story-image">
+                    <img src="images/about/store-front.jpg" alt="Cửa hàng Tiệm nhà Dứa" 
+                         onerror="this.src='images/about/placeholder-store.jpg'; this.onerror=null;">
+                </div>
+                <div class="story-content">
+                    <h2>Câu chuyện của chúng tôi</h2>
+                    <p>Tiệm nhà Dứa được thành lập vào năm 2020, xuất phát từ niềm đam mê với làm đẹp 
+                       và mong muốn mang đến những sản phẩm chất lượng cho khách hàng Việt Nam.</p>
+                    <p>Từ một cửa hàng nhỏ tại 123 Đường Tây Sơn, Đống Đa, Hà Nội, chúng tôi đã dần phát triển 
+                       và trở thành điểm đến yêu thích của các tín đồ làm đẹp.</p>
+                    <p>Với phương châm "Chất lượng là ưu tiên hàng đầu", chúng tôi cam kết chỉ cung cấp 
+                       những sản phẩm chính hãng, được nhập khẩu trực tiếp từ các thương hiệu uy tín trên thế giới.</p>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="values-section">
+                <div class="container">
+                    <div class="about-header">
+                        <h2>Giá trị cốt lõi</h2>
+                        <p>Những giá trị định hình nên Tiệm nhà Dứa và cam kết của chúng tôi với khách hàng</p>
+                    </div>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Chất lượng</h3>
+                            <p>Cam kết cung cấp sản phẩm chính hãng, chất lượng cao, 
+                               được nhập khẩu trực tiếp từ nhà sản xuất.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Tận tâm</h3>
+                            <p>Luôn lắng nghe và tư vấn nhiệt tình để mang đến trải nghiệm 
+                               mua sắm tốt nhất cho khách hàng.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Uy tín</h3>
+                            <p>Xây dựng niềm tin với khách hàng thông qua sự minh bạch 
+                               và chính sách bảo hành rõ ràng.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="about-section team-section">
+                <div class="about-header">
+                    <h2>Đội ngũ của chúng tôi</h2>
+                    <p>Những con người đam mê và tận tụy đằng sau thành công của Tiệm nhà Dứa</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="images/team/member1.jpg" alt="Phạm Thị Dứa">
+                        <h3>Phạm Thị Dứa</h3>
+                        <p>Founder & CEO</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61563886907581" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/member2.jpg" alt="Trần Thị Hoa">
+                        <h3>Trần Thị Hoa</h3>
+                        <p>Beauty Consultant</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team/member3.jpg" alt="Nguyễn Thị Lan">
+                        <h3>Nguyễn Thị Lan</h3>
+                        <p>Customer Service</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tiệm nhà Dứa</h3>
+                    <p>Chuyên cung cấp các sản phẩm mỹ phẩm, skincare chính hãng với giá tốt nhất thị trường.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-phone"></i> 0123 456 789<br>
+                        <i class="fas fa-envelope"></i> contact@tiemnhadua.com<br>
+                        <i class="fas fa-map-marker-alt"></i> 123 Đường Tây Sơn, Đống Đa, Hà Nội
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61563886907581" target="_blank" title="Tiệm nhà Dứa trên Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Đăng ký nhận tin</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tiệm nhà Dứa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
